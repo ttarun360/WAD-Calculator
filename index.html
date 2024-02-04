@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICalculator</title>
+</head>
+
+<body>
+    <h2>Javascript Calculator</h2>
+    <input type="text" id="fn" placeholder="Enter first number">
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <input type="text" id="sn" placeholder="Enter second number">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var fn = parseFloat(document.getElementById("fn").value);
+            var operation = document.getElementById("operation").value;
+            var sn = parseFloat(document.getElementById("sn").value);
+            var result;
+            switch (operation) {
+                case '+':
+                    result = fn + sn;
+                    break;
+                case '-':
+                    result = fn - sn;
+                    break;
+                case '*':
+                    result = fn * sn;
+                    break;
+                case '/':
+                    result = sn !== 0 ? fn / sn : 'Cannot divide by zero';
+                    break;
+                default:
+                    result = 'Invalid operation';
+                    break;
+            }
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+
+</html>
